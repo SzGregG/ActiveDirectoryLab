@@ -93,7 +93,7 @@ ___________________
 ##### Image 6: Both for Security and Distribution Groups I have set the scope to Global
 <img width="1021" height="767" alt="Képernyőkép 2025-11-12 234348" src="https://github.com/user-attachments/assets/123662a5-25f5-4510-b91a-4c0fc8741074" />
 
-##### Image 6: Once done I created 3 users for each of the departments and added them to both the security and the disribution groups of the respective department. Here is the end result
+##### Image 7: Once done I created 3 users for each of the departments and added them to both the security and the disribution groups of the respective department. Here is the end result
 <img width="1022" height="765" alt="Képernyőkép 2025-11-13 181232" src="https://github.com/user-attachments/assets/0d2cfc8f-35fd-456d-90ae-14bcc0af6a34" />
 
 
