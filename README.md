@@ -64,7 +64,35 @@ From these tools, now I will be using the "AD Users and Computers" tool.
 ##### Image 4: In the new window I can now create the desired OUs, Groups and Users for my domain. It can be done my right clicking on the domain, selecting new and then selecting OU. The same can be done for new groups and users by clicking on the desired OU or Group to which I want to add them to.
 <img width="1020" height="769" alt="Képernyőkép 2025-11-12 232715" src="https://github.com/user-attachments/assets/bfc90d54-04dc-4f31-bf72-aa6b37adc3ad" />
 
+I made the following 3 OUs for regional departments:
+- Americas
+- Asia
+- Liechtenstein
   
+Within each of these OUs I made another set of OUs:
+- Computers
+- Servers
+- Users
+  
+In the Users OU, I created a set of groups for different business units with 2 groups for each unit, one for security and one for distribution:
+- IT & DL-IT
+- HR & DL-HR
+- Finance & DL-Finance
+- Management & DL-Management
+- Marketing & DL-Marketing
+___________________________________
+### 📝 Note 2
+*Groups have 2 different options. Group Scope and Group type.  
+Group Scope determines to what extent - within or beyond a domain - a group can be accessed. The 3 categories within scope are "Domain Local", "Global" and "Universal".*
+##### Image 5: Table Reference of different group scopes. [Source](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups)
+<img width="1575" height="697" alt="Képernyőkép 2025-11-12 235712" src="https://github.com/user-attachments/assets/eeac624c-b6f1-405d-9b5d-14d2b42ebf80" />
+
+*Group type on the other hand has 2 categories. "Seucrity" and "Distribution". Security groups are used to assign permissions and user rights to shared resources. Distribution is used to create email distribution lists to send to a group of users.*
+___________________
+
+
+
+
 
 
 
