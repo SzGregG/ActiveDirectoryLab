@@ -15,13 +15,13 @@ Windows Server 2022 ISO [download](https://www.microsoft.com/en-us/evalcenter/do
 **Image 1: Once downloaded the server file, I created a new machine to be the Windows Server**
 <img width="1437" height="750" alt="Képernyőkép 2025-11-09 180526" src="https://github.com/user-attachments/assets/c7b6ad0e-a861-488c-aaea-047898aa4b54" />
 
-##### Video 1: Installing the Windows Server on the Virtual Machine
+**Video 1: Installing the Windows Server on the Virtual Machine**
 https://github.com/user-attachments/assets/d3df067d-315e-4eb9-a341-745a44a26ed9
 
 ## Step 2: Installing AD tools and creating a domain
 Once the installation is finished, when logging into the server the Server Manager window automatically comes on. Here is where the AD tool installation can be started.
 
-##### Image 2: To start the AD installation process click on "Manage" and then on "Add Roles and Features" which will open a new window
+**Image 2: To start the AD installation process click on "Manage" and then on "Add Roles and Features" which will open a new window**
 <img width="1026" height="769" alt="Képernyőkép 2025-11-12 190544" src="https://github.com/user-attachments/assets/1d009ecf-9fde-4754-b170-27bff41ce2aa" />
 
 In the new window different configurations can be selected in various tabs such as installation type, server roles and feautres.  
@@ -38,30 +38,30 @@ Features:
 - Group Policy Management
 
 After this I proceeded to the Confirmation tab where I could start the installation.  
-### !!! Important, don't close the installation window as this is where you can promote the server to Domain Controller (DC) !!!
+***!!! Important, don't close the installation window as this is where you can promote the server to Domain Controller (DC) !!!***
 
-##### Video 2: Here are all the tabs after selecting the desired configurations and features before hitting install
+**Video 2: Here are all the tabs after selecting the desired configurations and features before hitting install**
 https://github.com/user-attachments/assets/4171fdb3-5ea2-41bf-90fb-3e38084f4e7e
 
-##### Image 3: Once the installation is done you can promote the server to DC by clicking the following button
+**Image 3: Once the installation is done you can promote the server to DC by clicking the following button**
 <img width="1020" height="771" alt="Képernyőkép 2025-11-12 195022" src="https://github.com/user-attachments/assets/9473a724-c860-4143-9a17-123c1be40f9c" />
 
 Promoting the server to DC brings up a new window again, where the domain configurations can be selected. As deployment operation I selected "Add a new forest" and given the name "ad.SZG.com" as the root domain name.
 
 _____________
-### 📝 Note 1
+**📝 Note 1**
 *AD forests are root/top level logical containers in an AD environemt. Within it common configurations and directory schemas (defines all object types e.g: users groups etc. and their attributes) and global catalogs (global catalog - an index that contains information about every object within the forest, allowing to quickly search and locate them) are shared. A forest can contain one or multiple domains. These domains within the same forest automatically trust each other enabling secure communications adn resource sharing.*  
 
 *Domain naiming best practice - organisation.local was used in the past frequently as it meant it is not dns resolvable on the public internet. It is however no longer best practice as it can cause issues, one of which is prblem with cloud integration with service providers as they expect publicly routable domain names. As a result using subdomains of actual registered domains is recommended. E.g: ad.organisation.com*
 _____________  
 
-##### Video 3: All the configurations, domain names and passwords set just before starting the prerequsites checks and clicking on install. Once done with the installation the server restarted to finalise the installation process of the AD Tools.
+**Video 3: All the configurations, domain names and passwords set just before starting the prerequsites checks and clicking on install. Once done with the installation the server restarted to finalise the installation process of the AD Tools.**
 https://github.com/user-attachments/assets/27eb6027-cbe9-4527-b2cd-9b8615e40bea
 
 ## Step 3: Setting up AD, creating Organisational Units (OUs), Groups and Users
 Once the installation is finished, logging back into the server all the AD Tools installed can be access through the Start Menu and under the "Windows Administrative Tools" folder.  
 From these tools, now I will be using the "AD Users and Computers" tool.  
-##### Image 4: In the new window I can now create the desired OUs, Groups and Users for my domain. It can be done my right clicking on the domain, selecting new and then selecting OU. The same can be done for new groups and users by clicking on the desired OU or Group to which I want to add them to.
+**Image 4: In the new window I can now create the desired OUs, Groups and Users for my domain. It can be done my right clicking on the domain, selecting new and then selecting OU. The same can be done for new groups and users by clicking on the desired OU or Group to which I want to add them to.**
 <img width="1020" height="769" alt="Képernyőkép 2025-11-12 232715" src="https://github.com/user-attachments/assets/bfc90d54-04dc-4f31-bf72-aa6b37adc3ad" />
 
 I made the following 3 OUs for regional departments:
@@ -81,19 +81,19 @@ In the Users OU, I created a set of groups for different business units with 2 g
 - Management & DL-Management
 - Marketing & DL-Marketing
 ___________________________________
-### 📝 Note 2
+**📝 Note 2**
 *Groups have 2 different options. Group Scope and Group type.  
 Group Scope determines to what extent - within or beyond a domain - a group can be accessed. The 3 categories within scope are "Domain Local", "Global" and "Universal".*
-##### Image 5: Table Reference of different group scopes. [Source](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups)
+**Image 5: Table Reference of different group scopes. [Source](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups)**
 <img width="1575" height="697" alt="Képernyőkép 2025-11-12 235712" src="https://github.com/user-attachments/assets/eeac624c-b6f1-405d-9b5d-14d2b42ebf80" />
 
 *Group type on the other hand has 2 categories. "Seucrity" and "Distribution". Security groups are used to assign permissions and user rights to shared resources. Distribution is used to create email distribution lists to send to a group of users.*
 ___________________
 
-##### Image 6: Both for Security and Distribution Groups I have set the scope to Global
+**Image 6: Both for Security and Distribution Groups I have set the scope to Global**
 <img width="1021" height="767" alt="Képernyőkép 2025-11-12 234348" src="https://github.com/user-attachments/assets/123662a5-25f5-4510-b91a-4c0fc8741074" />
 
-##### Image 7: Once done I created 3 users for each of the departments and added them to both the security and the disribution groups of the respective department. Here is the end result
+**Image 7: Once done I created 3 users for each of the departments and added them to both the security and the disribution groups of the respective department. Here is the end result**
 <img width="1022" height="765" alt="Képernyőkép 2025-11-13 181232" src="https://github.com/user-attachments/assets/0d2cfc8f-35fd-456d-90ae-14bcc0af6a34" />
 
 
