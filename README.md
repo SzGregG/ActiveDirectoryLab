@@ -15,7 +15,8 @@ Windows Server 2022 ISO [download](https://www.microsoft.com/en-us/evalcenter/do
 **Image 1: Once downloaded the server file, I created a new machine to be the Windows Server**
 <img width="1437" height="750" alt="Képernyőkép 2025-11-09 180526" src="https://github.com/user-attachments/assets/c7b6ad0e-a861-488c-aaea-047898aa4b54" />
 
-**Video 1: Installing the Windows Server on the Virtual Machine**  
+**Video 1: Installing the Windows Server on the Virtual Machine**
+
 https://github.com/user-attachments/assets/d3df067d-315e-4eb9-a341-745a44a26ed9
 
 ## Step 2: Installing AD tools and creating a domain
@@ -40,7 +41,8 @@ Features:
 After this I proceeded to the Confirmation tab where I could start the installation.  
 ***!!! Important, don't close the installation window as this is where you can promote the server to Domain Controller (DC) !!!***
 
-**Video 2: Here are all the tabs after selecting the desired configurations and features before hitting install**  
+**Video 2: Here are all the tabs after selecting the desired configurations and features before hitting install**
+
 https://github.com/user-attachments/assets/4171fdb3-5ea2-41bf-90fb-3e38084f4e7e
 
 **Image 3: Once the installation is done you can promote the server to DC by clicking the following button**
@@ -55,8 +57,9 @@ _____________
 *Domain naiming best practice - organisation.local was used in the past frequently as it meant it is not dns resolvable on the public internet. It is however no longer best practice as it can cause issues, one of which is prblem with cloud integration with service providers as they expect publicly routable domain names. As a result using subdomains of actual registered domains is recommended. E.g: ad.organisation.com*
 _____________  
 
-**Video 3: All the configurations, domain names and passwords set just before starting the prerequsites checks and clicking on install. Once done with the installation the server restarted to finalise the installation process of the AD Tools.**  
-https://github.com/user-attachments/assets/27eb6027-cbe9-4527-b2cd-9b8615e40bea
+**Video 3: All the configurations, domain names and passwords set just before starting the prerequsites checks and clicking on install. Once done with the installation the server restarted to finalise the installation process of the AD Tools.**
+
+https://github.com/user-attachments/assets/3c0fe8e9-aa1d-43e2-a7e7-c70372d61fa4
 
 ## Step 3: Setting up AD, creating Organisational Units (OUs), Groups and Users
 Once the installation is finished, logging back into the server all the AD Tools installed can be access through the Start Menu and under the "Windows Administrative Tools" folder.  
@@ -95,6 +98,7 @@ ___________________
 
 **Image 7: Once done I created 3 users for each of the departments and added them to both the security and the disribution groups of the respective department. Here is the end result**
 <img width="1022" height="765" alt="Képernyőkép 2025-11-13 181232" src="https://github.com/user-attachments/assets/0d2cfc8f-35fd-456d-90ae-14bcc0af6a34" />
+
 
 
 
