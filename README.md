@@ -8,7 +8,9 @@
 ## 📝 Resources
 For the execution of this project Broadcom's VMware Workstation Pro (17.6.4) was used. It can be downloaded [here](https://knowledge.broadcom.com/external/article?articleNumber=368667).
 
-## Step 1: Setting up the Windows Server
+# Section 1.0: Initial Set Up
+
+## Step 1.1: Setting up the Windows Server
 In this project Microsoft's Windows Server 2022 ISO was used.  
 Windows Server 2022 ISO [download](https://www.microsoft.com/en-us/evalcenter/download-windows-server-2022).
 
@@ -19,7 +21,7 @@ Windows Server 2022 ISO [download](https://www.microsoft.com/en-us/evalcenter/do
 
 https://github.com/user-attachments/assets/d3df067d-315e-4eb9-a341-745a44a26ed9
 
-## Step 2: Installing AD tools and creating a domain
+## Step 1.2: Installing AD tools and creating a domain
 Once the installation is finished, when logging into the server the Server Manager window automatically comes on. Here is where the AD tool installation can be started.
 
 **Image 2: To start the AD installation process click on "Manage" and then on "Add Roles and Features" which will open a new window**
@@ -61,7 +63,7 @@ _____________
 
 https://github.com/user-attachments/assets/3c0fe8e9-aa1d-43e2-a7e7-c70372d61fa4
 
-## Step 3: Setting up AD, creating Organisational Units (OUs), Groups and Users
+## Step 1.3: Setting up AD, creating Organisational Units (OUs), Groups and Users
 Once the installation is finished, logging back into the server all the AD Tools installed can be access through the Start Menu and under the "Windows Administrative Tools" folder.  
 From these tools, now I will be using the "AD Users and Computers" tool.  
 **Image 4: In the new window I can now create the desired OUs, Groups and Users for my domain. It can be done my right clicking on the domain, selecting new and then selecting OU. The same can be done for new groups and users by clicking on the desired OU or Group to which I want to add them to.**
@@ -98,8 +100,18 @@ ___________________
 
 **Image 7: Once done I created 3 users for each of the departments and added them to both the security and the disribution groups of the respective department. Here is the end result**
 <img width="1022" height="765" alt="Képernyőkép 2025-11-13 181232" src="https://github.com/user-attachments/assets/0d2cfc8f-35fd-456d-90ae-14bcc0af6a34" />
+  
+______________________________________________________  
+______________________________________________________
+# Section 2.0: Group Policy Management
 
+## Step 2.1: Creating and Setting up Group Policy Objectives (GPOs)
 
+Alongside other tools I have already installed the Group Policy Management Tool in Section 1. It can be easy accessed through the Start Menu in the Windows Administrative Tools folder. In the Group Policy Management window the forest and domain can be seen that I created in the previous section. Here several policies can be adjusted with the use of User or Computer Configurations.
+___________
+
+Computer Configuration - configuration that applies only to the local computer and does not change per user
+User Configuration - configuration that applies to users on the local machine and apply to any new users in the future on this local computer
 
 
 
