@@ -117,10 +117,12 @@ Policies - can't be changed by users. e.g: password or account lockout policies
 Preferences - can be set by admins on default but can changed by users. e.g:mapped network drives, printers, desktop shortcuts.*
 ________________________________________
 The first thing I aimed to do is to set a password policy to ensure strong passwords and for improved security.
+  
 **Image 8: To create a new GPO/policy right-click on the domain name and choose the first option "Create a GPO in this domain...". Then proceed to name it, for easy navigation it is important to name them clearly to know what they do. Once done it will show up in the list under the chosen domain**
 <img width="1017" height="769" alt="Képernyőkép 2025-11-16 170014" src="https://github.com/user-attachments/assets/2330af66-2904-41b9-a639-18ec011b5ccf" />
 
-Now the policy can be edited according to need by right-clicking on it and choosing edit. For this policy I selected to do it via the computer configuration. The reason for this is because it is the computer which is asking for passwords when a user logs in. By applying this policy/rules to the computer I apply it to the computer's local authentication database, something which is shared by all domain users and thus more efficient then doing it by individual users.  
+Now the policy can be edited according to need by right-clicking on it and choosing edit. For this policy I selected to do it via the computer configuration. The reason for this is because it is the computer which is asking for passwords when a user logs in. By applying this policy/rules to the computer I apply it to the computer's local authentication database, something which is shared by all domain users and thus more efficient then doing it by individual users.
+  
 **Image 9: Next I went under policies as it should not be changable by users. Then under Windows settings > Security Settings > Account policies. Here all the various password settings can be found and edited**
 <img width="1022" height="724" alt="Képernyőkép 2025-11-16 171725" src="https://github.com/user-attachments/assets/7aceb183-8189-48b7-8878-607b842507c6" />
 
@@ -132,10 +134,23 @@ Last but not least I enabled Password complexity requirements determined by defa
 **Image 10: Once I set all the settings here is how it looked like.**
 <img width="1011" height="225" alt="Képernyőkép 2025-11-16 180547" src="https://github.com/user-attachments/assets/69dd8f2f-35b0-42a2-8bc9-adf13e27f9f1" />
 
+Next I set up a Drive Mapping GPO. Creating it like how I did with the Password policy and right-click on it to edit. As this is something which is going to be used by the user and also something which is inteded to be changable by users according to their needs and preferences so it will be under User Configuration and Preferences. Then proceeded to Windows Settings and > Drive Maps. Right click it, to create a new mapped drive.
+**Image 11: In the new window I selected the Location and the drive to be used then hit Apply.**
+<img width="1019" height="728" alt="Képernyőkép 2025-11-16 182517" src="https://github.com/user-attachments/assets/2b8fe62c-d6da-4ef7-b66c-d39b0f94e16f" />
 
+Another GPO I set up was to restrict access to the Control Panel. As it will be applied to users I went with User Configuration > Policies > Administrative Templates > Control Panel.  
+There are different options for restrictions. In case access is still desired for users but with limitations it can be limited either with the "Hide Specified Control Panel items" or "Show only specified Control Panel items" options.  
 
+**Image 12: In this instance I opted with prohibiting access instead**
+<img width="1022" height="359" alt="Képernyőkép 2025-11-16 184207" src="https://github.com/user-attachments/assets/1126b304-fe22-4332-abaa-89ac566fa243" />
 
+On the next GPO I created a GPO to prevent users from using USB storage devices. As it is applied directly ot the computer I selected Computer Configuration and Policies as it should not be possible to be changed by the user. Then proceeded to Administrative Tools > System > removable Storage Access.  
 
+**Image 13: It is possible to customise this policy based on different types of storage devices. In this instance I went with a blanket measure "All removable Storage classes: Deny all access"**
+<img width="1019" height="516" alt="Képernyőkép 2025-11-16 185232" src="https://github.com/user-attachments/assets/3f983deb-0bdf-4ec5-9c7b-03bd453b8302" />
 
-
+Finally I created a new GPO for Account Lockout Policy. It can be found Under Computer Configuration > Policies > Windows Settings > Security Settings > Account Lockout Policy.  
+  
+**Image 14: I Set 3 invalid logon attemtps and a 15 minute lockout timer**
+<img width="1021" height="309" alt="Képernyőkép 2025-11-16 191031" src="https://github.com/user-attachments/assets/5aa8976f-ab14-4840-887b-520ba7c633f4" />
 
