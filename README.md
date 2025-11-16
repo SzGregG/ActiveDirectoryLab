@@ -154,3 +154,5 @@ Finally I created a new GPO for Account Lockout Policy. It can be found Under Co
 **Image 14: I Set 3 invalid logon attemtps and a 15 minute lockout timer**
 <img width="1021" height="309" alt="Képernyőkép 2025-11-16 191031" src="https://github.com/user-attachments/assets/5aa8976f-ab14-4840-887b-520ba7c633f4" />
 
+## Step 2.2: Implement and Test Group Policy Objects (GPOs) on computers and users
+In order to test the GPOs I have set up in the previous step I have created and installed another VM with a Windows client to join the Domain.
