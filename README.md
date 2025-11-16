@@ -105,13 +105,35 @@ ______________________________________________________
 ______________________________________________________
 # Section 2.0: Group Policy Management
 
-## Step 2.1: Creating and Setting up Group Policy Objectives (GPOs)
+## Step 2.1: Creating and Setting up Group Policy Objects (GPOs)
 
-Alongside other tools I have already installed the Group Policy Management Tool in Section 1. It can be easy accessed through the Start Menu in the Windows Administrative Tools folder. In the Group Policy Management window the forest and domain can be seen that I created in the previous section. Here several policies can be adjusted with the use of User or Computer Configurations.
-___________
+Alongside other tools I have already installed the Group Policy Management Tool in Section 1. It can be easily accessed through the Start Menu in the Windows Administrative Tools folder. In the Group Policy Management window the forest and domain can be seen that I created in the previous section. Here several policies and preferencces can be adjusted with the use of User or Computer Configurations.
+________________________________________
+**📝Note 3** 
+*Computer Configuration - configuration that applies only to the local computer and does not change per user  
+User Configuration - configuration that applies to users on the local machine and apply to any new users in the future on this local computer  
+Under each there are also Policies and Preferences.  
+Policies - can't be changed by users. e.g: password or account lockout policies  
+Preferences - can be set by admins on default but can changed by users. e.g:mapped network drives, printers, desktop shortcuts.*
+________________________________________
+The first thing I aimed to do is to set a password policy to ensure strong passwords and for improved security.
+**Image 8: To create a new GPO/policy right-click on the domain name and choose the first option "Create a GPO in this domain...". Then proceed to name it, for easy navigation it is important to name them clearly to know what they do. Once done it will show up in the list under the chosen domain**
+<img width="1017" height="769" alt="Képernyőkép 2025-11-16 170014" src="https://github.com/user-attachments/assets/2330af66-2904-41b9-a639-18ec011b5ccf" />
 
-Computer Configuration - configuration that applies only to the local computer and does not change per user
-User Configuration - configuration that applies to users on the local machine and apply to any new users in the future on this local computer
+Now the policy can be edited according to need by right-clicking on it and choosing edit. For this policy I selected to do it via the computer configuration. The reason for this is because it is the computer which is asking for passwords when a user logs in. By applying this policy/rules to the computer I apply it to the computer's local authentication database, something which is shared by all domain users and thus more efficient then doing it by individual users.  
+**Image 9: Next I went under policies as it should not be changable by users. Then under Windows settings > Security Settings > Account policies. Here all the various password settings can be found and edited**
+<img width="1022" height="724" alt="Képernyőkép 2025-11-16 171725" src="https://github.com/user-attachments/assets/7aceb183-8189-48b7-8878-607b842507c6" />
+
+The first setting which I defined was the Minimum pasword length. I put this to 15 characters as recommended by the National Institute of Standards and Technology as of April 2025([source](https://www.nist.gov/cybersecurity/how-do-i-create-good-password)). By default it is limited to 14 characters as the max one could put, but it can be increased further if you enable the "Relax minimum password length limits" setting first, which I did.  
+Next I set the minimum and maximum password age to 30 and 90. Recoomendations from NIST and other organisations though for there to be no password expiration in case other more secure factors such as multifactor authentication is met.  
+I also enforced password history to be remembered up to 12 passwords to prevent reusability within a year.  
+Last but not least I enabled Password complexity requirements determined by default Windows requirements to demonstrate it. It has to be noted however that NIST does not recommend complexity, but emphiseses more on length.  
+
+**Image 10: Once I set all the settings here is how it looked like.**
+<img width="1011" height="225" alt="Képernyőkép 2025-11-16 180547" src="https://github.com/user-attachments/assets/69dd8f2f-35b0-42a2-8bc9-adf13e27f9f1" />
+
+
+
 
 
 
