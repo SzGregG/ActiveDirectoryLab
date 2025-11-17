@@ -154,7 +154,7 @@ Finally I created a new GPO for Account Lockout Policy. It can be found Under Co
 **Image 14: I Set 3 invalid logon attemtps and a 15 minute lockout timer**
 <img width="1021" height="309" alt="Képernyőkép 2025-11-16 191031" src="https://github.com/user-attachments/assets/5aa8976f-ab14-4840-887b-520ba7c633f4" />
 
-## Step 2.2: Implement and Test Group Policy Objects (GPOs) on computers and users
+## Step 2.2: Join a Computer to the Domain to test GPOs with
 In order to test the GPOs I have set up in the previous step I have created and installed another VM with a Windows client to join the Domain.
 Once installed the computer, I made sure the Windows server has a static IP. To do this on the Server I went into the Network Settings > Change adapter options. Went into Properties and then selected Internet Protocol Version 4 (TCP/IPv4).  
 
@@ -171,4 +171,29 @@ This time however I left the IP address to be done automatically and I changed o
 <img width="1002" height="533" alt="Képernyőkép 2025-11-17 155115" src="https://github.com/user-attachments/assets/8d324f89-8541-4134-936f-407716547b9d" />
 
 Now I can connect the PC to the domain. To do this I went to Start Menu > Settings > System > About and in that panel I selected Rename this PC(advanced). In the new window clicked on change where I can set the name of the computer but also the domain it will be a member of. I went with "Workstation01" as name and put in the domain ad.SZG.com that I set up in the early section. 
+
+**Video 4: Connecting the Computer to the domain. Once it is connected a restart will start to fully implement the connection**  
+
+https://github.com/user-attachments/assets/5fecb5e7-cbc7-4030-862f-fa4169866297
+
+**Video 5: After the restart we now can login onto the domain with any of the user we have created. To do this just select Other User and type in the name username and password. Here you can also check which computer you are dealing with by typing .\ into the username field. Once done in this instance it prompted me to change my password as that how I set up each us on their first logon. That's done now I can start to test the GPOs**
+
+https://github.com/user-attachments/assets/bcae1898-f441-44ab-8ef3-4cbe66ffbb3d
+
+## Step 2.3: Implementing and Testing the Group Policy Objects (GPOs)
+First things first to implement the GPOs I went back over to the Server client and within the Group Policy Management Tool.
+
+**Image 18: To implement the GPOs to specific OUs I dragged each GPO to the correct OUs. User Policies and Preference GPOs under the User OU and Computer Policies and Preference GPOs under the Computer OU.**
+<img width="1023" height="719" alt="Képernyőkép 2025-11-17 170946" src="https://github.com/user-attachments/assets/c3e60f9f-ccdb-4a9d-8ff7-849bbbd5f6d0" />
+
+Last step before I could test the GPOs was to open the AD Users and Computers Tool. Here I just needed to add the computer client we added to the domain to one of the Computer OUs I created under a Geographical department OU. In this instance I put it under Americas as it is the main one I am using and it has all the users. It is very easy to do this, just within the general Computers container right-clicked on my computer client "Workstation01" then on Move and selected my desired OU to move it to.
+  
+Now to test if the GPOs I implemented are working I changed back to the computer client.  
+  
+**Video 6: Here I tested the GPO to restrict the Control panel completely for users. It did work and came up with the restriction message. Great Success!**
+
+https://github.com/user-attachments/assets/fe226307-ade9-4363-af11-7cee902f67be
+
+
+
 
