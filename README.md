@@ -156,3 +156,19 @@ Finally I created a new GPO for Account Lockout Policy. It can be found Under Co
 
 ## Step 2.2: Implement and Test Group Policy Objects (GPOs) on computers and users
 In order to test the GPOs I have set up in the previous step I have created and installed another VM with a Windows client to join the Domain.
+Once installed the computer, I made sure the Windows server has a static IP. To do this on the Server I went into the Network Settings > Change adapter options. Went into Properties and then selected Internet Protocol Version 4 (TCP/IPv4).  
+
+**Image 15: The window where I set the IP address, Sudnetmask, default gateway and preferred DNS. 127.0.0.1 for DNS is a special address known as a loop back address which refers to your own computer/local host. Default gateway is the local network's address through which it will communicate with other networks e.g: the internet. Lastly subnetmask just determines which part of the IP address refers to the host and which one to the network, helping to determine what network is a host part of. Whereever it is the 0 in the sections that section shows the host on the actual IP address**
+<img width="1016" height="644" alt="Képernyőkép 2025-11-17 152641" src="https://github.com/user-attachments/assets/0069baeb-753a-4e99-9c3e-9698e47b6fc9" />
+
+
+Once the IP address has been set I switched back over to the Computer VM to connect it to the domain. Here once again I went into the Network setting > Change adapter options. Then again on properties and and the same option for IP properties how I set the static IP for the Server.  
+This time however I left the IP address to be done automatically and I changed only the DNS to use a preferred DNS which was to the the static IP of the Server 192.168.8.128.  
+
+**Image 16: IP properties panel once I set the DNS**
+<img width="1026" height="686" alt="Képernyőkép 2025-11-17 154450" src="https://github.com/user-attachments/assets/77034205-1e4a-46fe-acba-372595827768" />
+**Image 17: To test if the computer can successfully reach the server/domain controller I used the ping command. To check if the DNS works as intended I also used the nslookup command**
+<img width="1002" height="533" alt="Képernyőkép 2025-11-17 155115" src="https://github.com/user-attachments/assets/8d324f89-8541-4134-936f-407716547b9d" />
+
+Now I can connect the PC to the domain. To do this I went to Start Menu > Settings > System > About and in that panel I selected Rename this PC(advanced). In the new window clicked on change where I can set the name of the computer but also the domain it will be a member of. I went with "Workstation01" as name and put in the domain ad.SZG.com that I set up in the early section. 
+
