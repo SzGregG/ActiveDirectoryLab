@@ -66,6 +66,7 @@ https://github.com/user-attachments/assets/3c0fe8e9-aa1d-43e2-a7e7-c70372d61fa4
 ## Step 1.3: Setting up AD, creating Organisational Units (OUs), Groups and Users
 Once the installation is finished, logging back into the server all the AD Tools installed can be access through the Start Menu and under the "Windows Administrative Tools" folder.  
 From these tools, now I will be using the "AD Users and Computers" tool.  
+  
 **Image 4: In the new window I can now create the desired OUs, Groups and Users for my domain. It can be done my right clicking on the domain, selecting new and then selecting OU. The same can be done for new groups and users by clicking on the desired OU or Group to which I want to add them to.**
 <img width="1020" height="769" alt="Képernyőkép 2025-11-12 232715" src="https://github.com/user-attachments/assets/bfc90d54-04dc-4f31-bf72-aa6b37adc3ad" />
 
@@ -88,7 +89,7 @@ In the Users OU, I created a set of groups for different business units with 2 g
 ___________________________________
 **📝 Note 2**
 *Groups have 2 different options. Group Scope and Group type.  
-Group Scope determines to what extent - within or beyond a domain - a group can be accessed. The 3 categories within scope are "Domain Local", "Global" and "Universal".*
+Group Scope determines to what extent - within or beyond a domain - a group can be accessed. The 3 categories within scope are "Domain Local", "Global" and "Universal".*  
 **Image 5: Table Reference of different group scopes. [Source](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups)**
 <img width="1575" height="697" alt="Képernyőkép 2025-11-12 235712" src="https://github.com/user-attachments/assets/eeac624c-b6f1-405d-9b5d-14d2b42ebf80" />
 
@@ -135,6 +136,7 @@ Last but not least I enabled Password complexity requirements determined by defa
 <img width="1011" height="225" alt="Képernyőkép 2025-11-16 180547" src="https://github.com/user-attachments/assets/69dd8f2f-35b0-42a2-8bc9-adf13e27f9f1" />
 
 Next I set up a Drive Mapping GPO. Creating it like how I did with the Password policy and right-click on it to edit. As this is something which is going to be used by the user and also something which is inteded to be changable by users according to their needs and preferences so it will be under User Configuration and Preferences. Then proceeded to Windows Settings and > Drive Maps. Right click it, to create a new mapped drive.
+  
 **Image 11: In the new window I selected the Location and the drive to be used then hit Apply.**
 <img width="1019" height="728" alt="Képernyőkép 2025-11-16 182517" src="https://github.com/user-attachments/assets/2b8fe62c-d6da-4ef7-b66c-d39b0f94e16f" />
 
@@ -195,5 +197,13 @@ Now to test if the GPOs I implemented are working I changed back to the computer
 https://github.com/user-attachments/assets/fe226307-ade9-4363-af11-7cee902f67be
 
 
+# Section 3.0: File Services
+My aim in this section was to set up file services within the AD server.
+## Step 3.1: Set up file sharing
+To set up file sharing I aim to to first create shared folders and set the permissions for them. Then configure NTFS (New Technology File System) and share permissions so that users on the domain would be able to access the folders.
+
+_________________________________
+**📝Note 4** 
+NTFS (aka. New Technology File System) is the standard file system that machines with a Windows operating system use.
 
 
