@@ -137,8 +137,8 @@ Last but not least I enabled Password complexity requirements determined by defa
 
 Next I set up a Drive Mapping GPO. Creating it like how I did with the Password policy and right-click on it to edit. As this is something which is going to be used by the user and also something which is inteded to be changable by users according to their needs and preferences so it will be under User Configuration and Preferences. Then proceeded to Windows Settings and > Drive Maps. Right click it, to create a new mapped drive.
   
-**Image 11: In the new window I selected the Location and the drive to be used then hit Apply.**
-<img width="1019" height="728" alt="Képernyőkép 2025-11-16 182517" src="https://github.com/user-attachments/assets/2b8fe62c-d6da-4ef7-b66c-d39b0f94e16f" />
+**Image 11: In the new window I selected the location where the shared drive is going to be. Starting the path with the server first "WIN-TMIEEA7IFUF" then the folder name "SHARED DRIVE" which is going to function ass the shared network drive. Will get back to this in the next section and set up the actual folder**
+<img width="1022" height="725" alt="Képernyőkép 2025-11-23 113417" src="https://github.com/user-attachments/assets/e4bd96ec-89f3-4273-b98b-0a032f3a620b" />
 
 Another GPO I set up was to restrict access to the Control Panel. As it will be applied to users I went with User Configuration > Policies > Administrative Templates > Control Panel.  
 There are different options for restrictions. In case access is still desired for users but with limitations it can be limited either with the "Hide Specified Control Panel items" or "Show only specified Control Panel items" options.  
@@ -168,7 +168,7 @@ Once the IP address has been set I switched back over to the Computer VM to conn
 This time however I left the IP address to be done automatically and I changed only the DNS to use a preferred DNS which was to the the static IP of the Server 192.168.8.128.  
 
 **Image 16: IP properties panel once I set the DNS**
-<img width="1026" height="686" alt="Képernyőkép 2025-11-17 154450" src="https://github.com/user-attachments/assets/77034205-1e4a-46fe-acba-372595827768" />
+<img width="1020" height="682" alt="Képernyőkép 2025-11-17 154450" src="https://github.com/user-attachments/assets/878d8f02-1f25-46da-9ba6-0837af7df7e8" />
 **Image 17: To test if the computer can successfully reach the server/domain controller I used the ping command. To check if the DNS works as intended I also used the nslookup command**
 <img width="1002" height="533" alt="Képernyőkép 2025-11-17 155115" src="https://github.com/user-attachments/assets/8d324f89-8541-4134-936f-407716547b9d" />
 
@@ -186,7 +186,7 @@ https://github.com/user-attachments/assets/bcae1898-f441-44ab-8ef3-4cbe66ffbb3d
 First things first to implement the GPOs I went back over to the Server client and within the Group Policy Management Tool.
 
 **Image 18: To implement the GPOs to specific OUs I dragged each GPO to the correct OUs. User Policies and Preference GPOs under the User OU and Computer Policies and Preference GPOs under the Computer OU.**
-<img width="1023" height="719" alt="Képernyőkép 2025-11-17 170946" src="https://github.com/user-attachments/assets/c3e60f9f-ccdb-4a9d-8ff7-849bbbd5f6d0" />
+<img width="1019" height="714" alt="Képernyőkép 2025-11-17 170946" src="https://github.com/user-attachments/assets/183b63a6-6e56-4ae8-9c22-d4d44ecccf0f" />
 
 Last step before I could test the GPOs was to open the AD Users and Computers Tool. Here I just needed to add the computer client we added to the domain to one of the Computer OUs I created under a Geographical department OU. In this instance I put it under Americas as it is the main one I am using and it has all the users. It is very easy to do this, just within the general Computers container right-clicked on my computer client "Workstation01" then on Move and selected my desired OU to move it to.
   
@@ -198,12 +198,16 @@ https://github.com/user-attachments/assets/fe226307-ade9-4363-af11-7cee902f67be
 
 
 # Section 3.0: File Services
-My aim in this section was to set up file services within the AD server.
+My aim in this section was to set up a folder on the server which would serve as a shared network drive for domain users as well as set up file services within the AD server.
 ## Step 3.1: Set up file sharing
-To set up file sharing I aim to to first create shared folders and set the permissions for them. Then configure NTFS (New Technology File System) and share permissions so that users on the domain would be able to access the folders.
+To set up file sharing I first created the folder on the server machine's C:Drive named as "SHARED DRIVE". The folder naem I gave as the mapped network drive location as part of the Drive Mapping GPO (Please refer to Image 11).
 
-_________________________________
-**📝Note 4** 
-NTFS (aka. New Technology File System) is the standard file system that machines with a Windows operating system use.
+**Video 7: Next I set the permissions for the folder so that Domain Users will be able to access and read the folder.**
 
+https://github.com/user-attachments/assets/17134f69-3874-4a7c-a864-b8bd04e232a8
+
+After this I just made sure the ploicies are updated on the client machines by using the command "gpupdate /force" in the Command Prompt and restarted the machine.
+
+**Image 19: Once booted back up om the client machine the new shared drive could be found and accessed through the file explorer**
+<img width="1022" height="724" alt="Képernyőkép 2025-11-23 114526" src="https://github.com/user-attachments/assets/e5b3f1db-e969-46e9-bd06-d5f6edcfdb62" />
 
