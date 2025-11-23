@@ -200,14 +200,31 @@ https://github.com/user-attachments/assets/fe226307-ade9-4363-af11-7cee902f67be
 # Section 3.0: File Services
 My aim in this section was to set up a folder on the server which would serve as a shared network drive for domain users as well as set up file services within the AD server.
 ## Step 3.1: Set up file sharing
-To set up file sharing I first created the folder on the server machine's C:Drive named as "SHARED DRIVE". The folder naem I gave as the mapped network drive location as part of the Drive Mapping GPO (Please refer to Image 11).
+To set up file sharing I first created the folder on the server machine's C:Drive named as "SHARED DRIVE". The folder name I gave as the mapped network drive location as part of the Drive Mapping GPO (Please refer to Image 11) By using this GPO I created it enables the folder to be automatically map it as a network drive for users to access.
 
 **Video 7: Next I set the permissions for the folder so that Domain Users will be able to access and read the folder.**
 
 https://github.com/user-attachments/assets/17134f69-3874-4a7c-a864-b8bd04e232a8
 
-After this I just made sure the ploicies are updated on the client machines by using the command "gpupdate /force" in the Command Prompt and restarted the machine.
+After this I just made sure the policies are updated on the client machines by using the command "gpupdate /force" in the Command Prompt and restarted the machine.
 
-**Image 19: Once booted back up om the client machine the new shared drive could be found and accessed through the file explorer**
+**Image 19: Once booted back up on the client machine the new shared drive could be found and accessed through the file explorer**
 <img width="1022" height="724" alt="Képernyőkép 2025-11-23 114526" src="https://github.com/user-attachments/assets/e5b3f1db-e969-46e9-bd06-d5f6edcfdb62" />
+
+## Step 3.2: Set up File Server Resource Manager (FSRM) and configure file quotas and file screening
+Storage is not unlimited so to maintain costs and to manage data space effectively quotas can be used. File screening complements this feautre and can be used to make sure that files that would take up lots of space would not fill up the drives very quickyl. FSRM is a tool which can be used to introduce such functions, first one I looked at was quotas.  
+
+**Video 8: As the first step I installed the FSRM tool through the Server Manager. Just like how we installed other AD tools in Section 1.2. After the installation is finished, FSRM can be found in the Windows Administrative Tools folder with the other AD tools. No need to restart the server.**
+
+https://github.com/user-attachments/assets/2194dfbb-f93d-458c-a314-c648dab83e77
+
+**Video 9: Within FSRM I created a new quota. Selected the path to the Shared drive folder I wanted to set the quota on. After this it is possible to select given or custom quota properties, where it is possible to determine notification thresholds at which points the server can notify admins or even users that the storage limit is close to be reached. For now I just set it up with the recommended default properties.**
+
+https://github.com/user-attachments/assets/3901eaad-2a09-42b4-b410-5154ad7ff566
+
+Next up for File Screening the process is almost identical as it was for the quotas.
+
+**Video 10: Similarly to quotas, I selected out the shared drive folder location I wanted to apply it file screening on. Then again there are default screening options. In this instance I went with a custom one to screen out files which are video, audio, images, compressed, executable or web page files.**
+
+https://github.com/user-attachments/assets/28480185-a552-4a5a-bcab-2c67c1ba64ad
 
