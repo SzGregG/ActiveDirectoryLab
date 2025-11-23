@@ -52,7 +52,7 @@ https://github.com/user-attachments/assets/4171fdb3-5ea2-41bf-90fb-3e38084f4e7e
 Promoting the server to DC brings up a new window again, where the domain configurations can be selected. As deployment operation I selected "Add a new forest" and given the name "ad.SZG.com" as the root domain name.
 
 _____________
-**📝 Note 1**
+**📝 Note 1**  
 *AD forests are root/top level logical containers in an AD environemt. Within it common configurations and directory schemas (defines all object types e.g: users groups etc. and their attributes) and global catalogs (global catalog - an index that contains information about every object within the forest, allowing to quickly search and locate them) are shared. A forest can contain one or multiple domains. These domains within the same forest automatically trust each other enabling secure communications adn resource sharing.*  
 
 *Domain naiming best practice - organisation.local was used in the past frequently as it meant it is not dns resolvable on the public internet. It is however no longer best practice as it can cause issues, one of which is prblem with cloud integration with service providers as they expect publicly routable domain names. As a result using subdomains of actual registered domains is recommended. E.g: ad.organisation.com*
@@ -86,7 +86,7 @@ In the Users OU, I created a set of groups for different business units with 2 g
 - Management & DL-Management
 - Marketing & DL-Marketing
 ___________________________________
-**📝 Note 2**
+**📝 Note 2**  
 *Groups have 2 different options. Group Scope and Group type.  
 Group Scope determines to what extent - within or beyond a domain - a group can be accessed. The 3 categories within scope are "Domain Local", "Global" and "Universal".*  
 **Image 5: Table Reference of different group scopes. [Source](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups)**
@@ -109,7 +109,7 @@ ______________________________________________________
 
 Alongside other tools I have already installed the Group Policy Management Tool in Section 1. It can be easily accessed through the Start Menu in the Windows Administrative Tools folder. In the Group Policy Management window the forest and domain can be seen that I created in the previous section. Here several policies and preferencces can be adjusted with the use of User or Computer Configurations.
 ________________________________________
-**📝Note 3** 
+**📝Note 3**   
 *Computer Configuration - configuration that applies only to the local computer and does not change per user  
 User Configuration - configuration that applies to users on the local machine and apply to any new users in the future on this local computer  
 Under each there are also Policies and Preferences.  
