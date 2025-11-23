@@ -1,15 +1,14 @@
 # Active Directory Lab
 ## 🎯Objectives
-- 1 Install Windows Server
-- 2 Install Active Directory (AD) tools on the Windows Server and creating a domain
-- 3 Create organisational units (OU) for different business departments (e.g.: IT, HR, Finance etc)
-- 4 Create user accounts and groups within the different OUs
+- Section 1: Set Up an Active Directory (AD) server and a domain with various organisational units and users
+- Section 2: Create several Group Policies and test if they have been successfully implemeted
+- Section 3: Create a shared network drive for domain users and create settings to enable efficent use of disk space 
 
 ## 📝 Resources
 For the execution of this project Broadcom's VMware Workstation Pro (17.6.4) was used. It can be downloaded [here](https://knowledge.broadcom.com/external/article?articleNumber=368667).
 
 # Section 1.0: Initial Set Up
-
+In this Section I aim to install a windows server, install Active Directory (AD), create a domain, create oraganisational units (OUs) and finally create user which I can add to these OUs.
 ## Step 1.1: Setting up the Windows Server
 In this project Microsoft's Windows Server 2022 ISO was used.  
 Windows Server 2022 ISO [download](https://www.microsoft.com/en-us/evalcenter/download-windows-server-2022).
@@ -196,7 +195,8 @@ Now to test if the GPOs I implemented are working I changed back to the computer
 
 https://github.com/user-attachments/assets/fe226307-ade9-4363-af11-7cee902f67be
 
-
+_________________________________________
+_________________________________________
 # Section 3.0: File Services
 My aim in this section was to set up a folder on the server which would serve as a shared network drive for domain users as well as set up file services within the AD server.
 ## Step 3.1: Set up file sharing
@@ -228,3 +228,6 @@ Next up for File Screening the process is almost identical as it was for the quo
 
 https://github.com/user-attachments/assets/28480185-a552-4a5a-bcab-2c67c1ba64ad
 
+_______________________________________
+_______________________________________
+That's the end of this project for now. Thank you if took your time to look take a peek at it!
